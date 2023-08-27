@@ -82,7 +82,7 @@ class Ball {
             this.velocity.x = -this.velocity.x;
         }
 
-        if (rightBall < paddleLeft.position.x) {
+        if (leftBall < paddleLeft.position.x) {
             this.velocity.x = -Infinity;
             if (this.velocity.y > 0) {
                 this.velocity.y = Infinity;
@@ -91,7 +91,7 @@ class Ball {
             }
         }
 
-        if (leftBall > paddleRight.position.x + paddleRight.width) {
+        if (rightBall > paddleRight.position.x + paddleRight.width) {
             this.velocity.x = Infinity;
             if (this.velocity.y > 0) {
                 this.velocity.y = Infinity;
