@@ -12,7 +12,7 @@ class Paddle {
             y: 0
         }
         this.width = 10;
-        this.height = 75;
+        this.height = canvas.height / 5;
     }
 
     draw() {
@@ -120,14 +120,14 @@ class Ball {
 const paddleLeft = new Paddle({
     position: {
         x: 5,
-        y: (canvas.height / 2) - 37
+        y: (canvas.height / 2) - ((canvas.height / 5) / 2)
     },
 });
 
 const paddleRight = new Paddle({
     position: {
         x: canvas.width - 15,
-        y: (canvas.height / 2) - 37
+        y: (canvas.height / 2) - ((canvas.height / 5) / 2)
     },
 });
 

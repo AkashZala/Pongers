@@ -12,7 +12,7 @@ h1 {
     border: 2px solid whitesmoke;
     text-align: center;
     width: 504px;
-    margin: auto;
+    margin: 2% auto 0 auto;
 }
 
 .directions {
@@ -21,7 +21,7 @@ h1 {
 }
 
 .directions > p {
-    width: calc(252px * .98);
+    width: calc(252px * .99);
     border: 2px solid whitesmoke;
     color: whitesmoke;
     text-align: center;
@@ -42,4 +42,33 @@ canvas {
     margin: auto;
     margin-top: 1%;
     display: block;
+    
+}
+
+#footer {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    text-align: center;
+    padding: 0 1% 1% 0;
+
+}
+
+@media (max-width: 505px) {
+    canvas {
+        width: 300px;
+        height: calc(350px * 3 / 5);
+    }
+
+    h1 {
+        width: 300px;
+    }
+
+    #space {
+        width: 300px;
+    }
+
+    .directions > p {
+        width: calc(150px * .98);
+    }
 }
