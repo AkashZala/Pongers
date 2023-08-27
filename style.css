@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    background: black;
+    margin: 0;
+    color: whitesmoke;
+    font-family: 'Courier New', Courier, monospace;
+}
+h1 {
+    border: 2px solid whitesmoke;
+    text-align: center;
+    width: 504px;
+    margin: auto;
+}
+
+.directions {
+    display: flex;
+    justify-content: center;
+}
+
+.directions > p {
+    width: calc(252px * .98);
+    border: 2px solid whitesmoke;
+    color: whitesmoke;
+    text-align: center;
+    margin: 1% .5% 0 .5% ;
+}
+
+#space {
+    width: 504px;
+    border: 2px solid whitesmoke;
+    color: whitesmoke;
+    text-align: center;
+    margin-top: 1%;
+}
+
+canvas {
+    border: solid 2px whitesmoke;
+    padding: 0;
+    margin: auto;
+    margin-top: 1%;
+    display: block;
+}
