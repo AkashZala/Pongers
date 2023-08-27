@@ -17,19 +17,23 @@ h1 {
 
 .directions {
     display: flex;
+    width: 504px;
+    flex-wrap: wrap;
     justify-content: center;
+    margin: auto;
 }
 
 .directions > p {
-    width: calc(252px * .99);
+    width: 50%;
     border: 2px solid whitesmoke;
     color: whitesmoke;
     text-align: center;
-    margin: 1% .5% 0 .5% ;
+    margin: 1% auto 0 auto;
+    padding: 0 1% 0 1%;
 }
 
 #space {
-    width: 504px;
+    width: 100%;
     border: 2px solid whitesmoke;
     color: whitesmoke;
     text-align: center;
@@ -68,7 +72,11 @@ canvas {
         width: 300px;
     }
 
+    .directions {
+        width: 304px
+    }
+
     .directions > p {
-        width: calc(150px * .98);
+        width: 48%;
     }
 }
