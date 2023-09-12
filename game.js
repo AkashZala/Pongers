@@ -88,6 +88,8 @@ addEventListener('keydown', (event) => {
         case 'n':
             null;
             break;
+        case 'Enter':
+            window.location.reload();
     }
     
     if (event.key === " ") {

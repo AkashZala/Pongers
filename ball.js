@@ -59,7 +59,7 @@ class Ball {
             this.velocity.x = -this.velocity.x;
         }
 
-        if (leftBall < paddleLeft.position.x) {
+        if (leftBall < paddleLeft.position.x + (paddleLeft.width / 2)) {
             this.velocity.x = -Infinity;
             if (this.velocity.y > 0) {
                 this.velocity.y = Infinity;
@@ -69,7 +69,7 @@ class Ball {
             gameOver()
         }
 
-        if (rightBall > paddleRight.position.x + paddleRight.width) {
+        if (rightBall > paddleRight.position.x + (paddleRight.width / 2)) {
             this.velocity.x = Infinity;
             if (this.velocity.y > 0) {
                 this.velocity.y = Infinity;
