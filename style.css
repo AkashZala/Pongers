@@ -57,6 +57,12 @@ canvas {
 
 }
 
+.container {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
 @media (max-width: 505px) {
     canvas {
         width: 300px;

@@ -1,34 +1,3 @@
-const canvas = document.querySelector('canvas');
-const c = canvas.getContext('2d');
-
-canvas.width = 500;
-canvas.height = 300;
-
-class Paddle {
-    constructor({ position }) {
-        this.position = position;
-        this.velocity = {
-            x: 0,
-            y: 0
-        }
-        this.width = 10;
-        this.height = canvas.height / 5;
-    }
-
-    draw() {
-        c.fillStyle = 'whitesmoke';
-        c.fillRect(this.position.x, this.position.y, this.width, this.height);
-    };
-
-    update() {
-        this.draw()
-
-        if (this.position.y + this.velocity.y > 0 && this.position.y + this.height + this.velocity.y < canvas.height) {
-            this.position.y += this.velocity.y;
-        }
-    }
-}
-
 class Ball {
     constructor({ position }) {
         this.position = position;
@@ -46,6 +15,11 @@ class Ball {
         this.height = 8;
         this.width = 8;
     }
+
+    clear() {
+        c.clearRect(0, 0, canvas.width, canvas.height)
+    }
+
     draw() {
         c.beginPath();
         c.arc(this.position.x + 3, this.position.y + 4, 4, 0, Math.PI * 2);
@@ -61,6 +35,9 @@ class Ball {
 
     update() {
         this.draw();
+
+        this.position.x += this.velocity.x;
+        this.position.y += this.velocity.y;
 
         const rightBall = this.position.x + this.velocity.x + this.width
         const leftBall = this.position.x + this.velocity.x
@@ -89,6 +66,7 @@ class Ball {
             } else {
                 this.velocity.y = -Infinity;
             }
+            gameOver()
         }
 
         if (rightBall > paddleRight.position.x + paddleRight.width) {
@@ -98,6 +76,8 @@ class Ball {
             } else {
                 this.velocity.y = -Infinity;
             }
+            gameOver()
+            
         }
 
         // Top and Bottom wall collision
@@ -112,79 +92,5 @@ class Ball {
             this.velocity.y = 0;
         }
 
-        this.position.x += this.velocity.x;
-        this.position.y += this.velocity.y;
     }
 }
-
-const paddleLeft = new Paddle({
-    position: {
-        x: 5,
-        y: (canvas.height / 2) - ((canvas.height / 5) / 2)
-    },
-});
-
-const paddleRight = new Paddle({
-    position: {
-        x: canvas.width - 15,
-        y: (canvas.height / 2) - ((canvas.height / 5) / 2)
-    },
-});
-
-const ball = new Ball({
-    position: {
-        x: canvas.width / 2 - 4,
-        y: canvas.height / 2 - 4
-    },
-});
-
-function animate() {
-    requestAnimationFrame(animate)
-    c.fillStyle = 'black';
-    c.fillRect(0, 0, canvas.width, canvas.width);
-    paddleLeft.update();
-    paddleRight.update();
-
-    ball.update();
-}
-
-animate();
-
-addEventListener('keydown', (event) => {
-    const speed = 5;
-    switch (event.key) {
-        case 'w':
-            paddleLeft.velocity.y = -speed;
-            break;
-        case 's':
-            paddleLeft.velocity.y = speed;
-            break;
-        case 'ArrowUp':
-            paddleRight.velocity.y = -speed;
-            break;
-        case 'ArrowDown':
-            paddleRight.velocity.y = speed;
-            break;
-        case ' ':
-            location.reload()
-            break;
-    }
-});
-
-addEventListener('keyup', (event) => {
-    switch (event.key) {
-        case 'w':
-            paddleLeft.velocity.y = 0;
-            break;
-        case 's':
-            paddleLeft.velocity.y = 0;
-            break;
-        case 'ArrowUp':
-            paddleRight.velocity.y = 0;
-            break;
-        case 'ArrowDown':
-            paddleRight.velocity.y = 0;
-            break;
-    }
-});
-
