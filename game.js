@@ -53,7 +53,7 @@ function start() {
 function stop() {
     isPaused = true;
     canvas.style.opacity = .7;
-    c.font = "50px verdana";
+    c.font = "50px Courier New";
     c.fillStyle = 'whitesmoke';
     c.textAlign = 'center';
     c.textBaseline = 'center';
@@ -63,7 +63,7 @@ function stop() {
 function gameOver() {
     isGameOver = true;
     canvas.style.opacity = .7;
-    c.font = "50px verdana";
+    c.font = "50px Courier New";
     c.fillStyle = 'whitesmoke';
     c.textAlign = 'center';
     c.textBaseline = 'center';
@@ -91,14 +91,14 @@ addEventListener('keydown', (event) => {
         case 'Enter':
             window.location.reload();
     }
-    
+
     if (event.key === " ") {
-            if (!isPaused && !isGameOver) {
-                stop();
-            } else {
-                start();
-            }
+        if (!isPaused && !isGameOver) {
+            stop();
+        } else {
+            start();
         }
+    }
 });
 
 loop();
